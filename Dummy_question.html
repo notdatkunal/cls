@@ -1,0 +1,362 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FAQs</title>
+    <meta name="description" content="CVIRMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link rel="shortcut icon" href="images/cvirms_logo.png">
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+
+             /* Style the dropdown menu */
+    .user-menu {
+    display: none; /* Hide the menu by default */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+    /* Style the menu items */
+    .user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+    /* Change the background color and text color on hover */
+    .user-menu a:hover {
+    background-color: #b4d0de;
+    color: #fff;
+}
+
+    /* Show the dropdown menu when the parent element is hovered */
+    .dropdown:hover .user-menu {
+    display: block;
+}
+
+
+    .card:hover {
+        transform: scale(1.00); /* Enlarge the card slightly on hover */
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+        #main-menu a {
+        color: black !important;
+    }
+    
+        #language {
+    margin-top: 0; /* Remove top margin */
+    padding: 10px 0px; /* Adjust padding as needed */
+    }
+        #emergency{
+            background-color: #e0c8f7;
+        }
+        #notice{
+            background-color: #f7c8c6;
+        }
+        #Add{
+            background-color: #c1e2b3;
+
+        }
+        #support{
+            background-color: #e6f7ff;
+        }
+        .card{
+            border-radius: 20px;
+        }
+
+        .logo {
+    display: inline-flex;
+    align-items: center;
+    color: white; /* Set text color to white */
+   
+    padding: 5px 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.logo i {
+    margin-right: 5px; /* Add spacing between the icon and text */
+}
+
+
+
+/* Dropdown Menu Background */
+.dropdown-menu {
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc; /* Dropdown Menu Border */
+    border-radius: 5px; /* Rounded corners for the dropdown menu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Dropdown Menu Items Text Color */
+.dropdown-item {
+    color: #333333;
+}
+
+/* Hover Color (Background) */
+.dropdown-item:hover {
+    background-color: #b4d0de;
+    color: #555555; /* Text color for hovered item */
+}
+
+/* Highlight Color (Active Item) */
+.dropdown-item.active {
+    background-color: #e0e0e0;
+}
+
+/* Remove underlines from links inside dropdown items */
+.dropdown-item a {
+    text-decoration: none;
+}
+
+/* Optional: Increase spacing between items for better readability */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+}
+
+/* Optional: Style the dropdown toggle button */
+.navbar-toggler-icon {
+    color: #333333;
+}
+.green-button {
+    background-color: green !important;
+}
+
+
+
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+
+        function update(id){
+            console.log(id);
+            console.log("user is updated");
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel" style="background-color: #bab6b6;">
+        <nav class="navbar navbar-expand-sm navbar-default" style="background-color: #bab6b6;">
+            <div class="navbar-header" >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #bab6b6;">
+                    <i class="fa fa-bars" ></i>
+                </button>
+                <a class="navbar-brand" href="index.html" style="background-color: #bab6b6;">
+                    <img src="images/cvirms_logo.png" alt="Logo" width="130px">
+                </a>   
+                
+            </div>
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="menu-icon fa fa-home"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Home
+                        </a>
+                    </li>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="employee.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Add Employee
+                        </a>
+                    </li>
+
+        
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="foreign_visitor.html">
+                            <i class="menu-icon fa fa-user-secret"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Foreign Visitor
+                        </a>
+                    </li>
+
+                   
+                    
+                    <li class="nav-item dropdown active"> <!-- Use the 'nav-item dropdown' class -->
+                        <a class="nav-link dropdown-toggle ml-auto" href="#" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            <i class="menu-icon fa fa-language black-menu-icon" aria-hidden="true" aria-hidden="true" style="color: black;"></i> Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language">
+                            <a class="dropdown-item" href="#" >Hindi</a>
+                            <a class="dropdown-item" href="#" >English</a>
+                            <a class="dropdown-item" href="#" >Marathi</a>
+                            <a class="dropdown-item" href="#" >Kannada</a>
+                            <a class="dropdown-item" href="#" >Telugu</a>
+                            <a class="dropdown-item" href="#" >Malayalam</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </aside><!-- /#left-panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header" style="background-color:#bab6b6;">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger" style="margin-right: 70px; " ><input type="submit" value="Search" style="width: 100px;"></i></button>
+                        <div class="form-inline" style="background-color: #BAB6B6 ;">
+                            <form class="search-form" style="background-color: #BAB6B6;">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search" style="background-color: #BAB6B6;color: black;">
+                                <button class ="search-close" type="submit"><i style="color: black"; class ="fa fa-close"></i></button>
+                            </form>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/noprofile.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="dropdown">
+                            <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="profile.html"><i class="fa fa-user"></i> My Profile</a>
+                    
+                               
+                                <a class="nav-link" onclick="out()"><i class="fa fa-power-off"></i> Logout</a>
+                                <script>
+                                    function out(){
+                                        sessionStorage.clear();
+                                        window.location.href = "index.html";
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div id="language-select">
+                        <a id="profile" aria-haspopup="true" aria-expanded="true">
+                            <p style="color: black;">Profile</p>
+                        </a>
+                    </div>
+
+                 </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+        <header>
+            <h1 align="center" style="background-color: #757575; color: white; padding: 20px;">CVIRMS FAQ</h1>
+        </header>
+        
+        <div class="container" style=" max-width: 800px;margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px ;">
+    
+            <div class="faq" style="margin-bottom: 20px;">
+            
+                <h2 style= "color: #007bff;font-size: 24px; margin-top: 20px;">1. I forgot my password. How do I obtain it?</h2>
+                <p style="font-size: 18px;  line-height: 1.6;">Click on Forgot password, enter your registered mobile number, and an SMS with a password reset link will be sent to you. If you experience difficulty, you may also contact <a style="color: #4615f7;text-decoration: none"href="tel:+918480005263">ASQ Support</a>.</p>
+            </div>
+            
+            <div class="faq" style="margin-bottom: 20px;">
+                <h2 style= "color:#007bff;font-size: 24px; margin-top: 20px;">2. I’m a member of CVIRMS. How do I login?</h2>
+                <p style="font-size: 18px;  line-height: 1.6; ">The first time you login, enter your Username and Password in the login box which is located throughout the CVIRMS site.</p>
+            </div>
+    
+            <div class="faq"style="margin-bottom: 20px;" >
+               
+                <h2 style= "color: #007bff;font-size: 24px; margin-top: 20px;">3. What can I enter visitors/tenant when I login?</h2>
+                <p style="font-size: 18px;  line-height: 1.6;">You can enter different types of visitors by clicking on Add new Visitor and enter the details of the guest.</p>
+            </div>
+    
+            <div class="faq"style="margin-bottom: 20px;">
+                <h2 style= "color: #007bff;font-size: 24px; margin-top: 20px;">4. How to change language in CVIRMS software</h2>
+                <p style="font-size: 18px;  line-height: 1.6;">After logging in, click on the change language option given above on the website.</p>
+            </div>
+    
+            <div class="faq"style="margin-bottom: 20px;">
+                <h2 style= "color: #007bff;font-size: 24px; margin-top: 20px;">5. How should I check out Guest?</h2>
+                <p style="font-size: 18px;  line-height: 1.6;">You can check out a guest by opening the Visitor List tab, selecting the guest you want to logout, and clicking on the Upload check-out option. Then, select the checkout option and fill in the checkout date and time.</p>
+            </div>
+    
+            <div class="faq"style="margin-bottom: 20px;">
+                <h2 style= "color: #007bff;font-size: 24px; margin-top: 20px;">6. If I have not received Login Id & Password</h2>
+                <p style="font-size: 18px;  line-height: 1.6;">Check your registered mobile number or contact our Support team at <a style="color:#4615f7;text-decoration: none"href="tel:+918480005263">+918480005263</a>.</p>
+            </div>
+    
+            <div class="faq"style="margin-bottom: 20px;">
+                <h2 style= "color: #007bff;font-size: 24px; margin-top: 20px;">7. After submitting entry notification, a pop-out says "Mentioned data already"</h2>
+                <p style="font-size: 18px;  line-height: 1.6;">Go to Chrome settings to remove saved data that is repeating and enter new data correctly.</p>
+            </div>
+    
+            <p class="contact" style=" font-size: 16px; margin-top: 20px;">For further assistance, please contact our <a style="color:#4615f7;text-decoration: none" ="tel:+918480005263">Support Team</a>.</p>
+        </div>
+
+    <!-- Right Panel -->
+    
+
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/widgets.js"></script>
+    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+
+</body>
+
+</html>

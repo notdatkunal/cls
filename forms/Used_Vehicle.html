@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Used Vehicle</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style type="text/css">
+        .d {
+            width: 100%;
+           
+        }
+        .l1 {
+            text-align: left;
+            font-weight: bolder;
+            font-size: 20px;
+            
+        }
+        .z1 {
+            font-weight: bolder;
+            font-size: 20px;
+            border-width: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .f1,
+        .f2,
+        .f3,
+        .f4 {
+            font-weight: bolder;
+            font-size: 20px;
+            border-width: 5px;
+            margin-bottom: 10px;
+            border-width: 5px;  
+        }
+        form {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+      
+      function toggleBrokerFields() {
+        const brokerCheckbox = document.getElementById("brokerCheckbox");
+        const brokerFieldset = document.getElementById("brokerFieldset");
+
+        if (brokerCheckbox.checked) {
+            brokerFieldset.style.display = "block";
+        } else {
+            brokerFieldset.style.display = "none";
+        }
+    }  
+
+
+        function change() {
+            const vehicleTypeDropdown = document.getElementById("vehicleType");
+            const makeDropdown = document.getElementById("makeDropdown");
+            
+            makeDropdown.innerHTML = ""; // Clear existing options
+            
+            const selectedVehicleType = vehicleTypeDropdown.value;
+            
+            if (selectedVehicleType === "Two wheeler") {
+                // Add options for two-wheeler
+                const options = ["Hero MotoCorp",
+    "Bajaj",
+    "TVS",
+    "Honda",
+    "Suzuki",
+    "Yamaha",
+    "Royal Enfield",
+    "KTM",
+    "Mahindra",
+    "Piaggio",
+    "Vespa",
+    "Aprilia",
+    "Jawa",
+    "Benelli",
+    "Harley-Davidson",
+    "Ducati",
+    "Triumph",
+    "Kawasaki"];
+                options.forEach(optionValue => {
+                    const option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    makeDropdown.appendChild(option);
+                });
+            } else if (selectedVehicleType === "Car") {
+                // Add options for car
+                const options = ["Maruti Suzuki", "Hyundai",
+    "Tata Motors",
+    "Mahindra",
+    "Kia",
+    "Honda",
+    "Toyota",
+    "Ford",
+    "Volkswagen",
+    "Renault",
+    "Nissan",
+    "Skoda",
+    "MG Motors",
+    "Jeep",
+    "BMW",
+    "Mercedes-Benz",
+    "Audi",
+    "Volvo",
+    "Jaguar",
+    "Land Rover"];
+                options.forEach(optionValue => {
+                    const option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    makeDropdown.appendChild(option);
+                });
+            }
+            else if (selectedVehicleType === "Commercial Vehicle") {
+                // Add options for Commercial Vehicle
+                const options = [
+                "Tata Motors",
+    "Ashok Leyland",
+    "Mahindra",
+    "Eicher",
+    "Force Motors",
+    "Piaggio",
+    "Swaraj Mazda",
+    "BharatBenz",
+    "Volvo Trucks",
+    "Scania",
+    "Daimler",
+    "Isuzu",
+    "MAN Trucks",
+    "Hino",
+    "Foton",
+    "Kamaz",
+    "AMW",
+    "Navistar International"];
+                options.forEach(optionValue => {
+                    const option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    makeDropdown.appendChild(option);
+                });
+            }
+            else {
+                // Default placeholder option
+                const option = document.createElement("option");
+                option.value = "";
+                option.textContent = "Please select a vehicle type first";
+                makeDropdown.appendChild(option);
+            }
+        }
+
+        // Initial call to populate options based on the default selected value
+        change();
+    </script>
+</head>
+<body>
+    <h1 align="center" style="background-color: #dbdcde;">USED VEHICLE</h1>
+    <div class="d">
+    <div class="container mt-5">
+       
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                   
+   
+                        
+                                <legend class="l1">Type of Vehicle:</legend>
+                                    <div class="form-group">
+                                        <label>Type:</label>
+                                        <select id="vehicleType" class="form-control" onchange="change()">
+                                            <option value="Two wheeler">Two wheeler</option>
+                                            <option value="Car">Car</option>
+                                            <option value="Commercial Vehicle">Commercial Vehicle</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="l1">Make:</label>
+                                        <select id="makeDropdown" class="form-control">
+                                            <option value="">Please select type of vehicle</option>
+                                        </select>
+                                    </div>
+                                <div class="form-group">
+                                    <label class="l1">Model :</label>
+                                    <input type="text" class="form-control" placeholder="Model">
+                                </div>
+                                <div class="form-group">
+                                    <label class="l1">Chassis Number:</label>
+                                    <input type="text" class="form-control" placeholder="Chassis Number">
+                                </div>
+                                <div class="form-group">
+                                    <label class="l1">Photo of Vehicle:</label>
+                                    <input type="file" class="form-control-file">
+                                </div>
+                                <div class="form-group">
+                                    <label class="l1">Registration Number:</label>
+                                    <input type="text" class="form-control" placeholder="Registration Number">
+                                </div>
+                            </fieldset>
+                         </fieldset>
+                        
+ <div class="form-group">
+    <fieldset class="">
+        <legend class="z1">Name of Seller:</legend>
+        <div class="form-row">
+            <div class="form-group col-md-3 z1">
+                <label>Title</label>
+                <select name="title" class="form-control">
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Miss">Miss</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3 ">
+                <label>First Name</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-3 ">
+                <label>Middle Name</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-3 ">
+                <label>Last Name</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label class="l1">Contact Number:</label>
+        <input type="tel" class="form-control" placeholder="Contact Number">
+    </div>
+    <div class="form-group">
+        <label class="l1">Alternate Number:</label>
+        <input type="tel" class="form-control" placeholder="Alternate Number">
+    </div>
+        <label class="l1">Address:</label>
+        <input type="text" class="form-control" placeholder="Address">
+    </div>
+    <div class="form-group">
+        <label class="l1">Pincode:</label>
+        <input type="text" class="form-control" placeholder="Pincode">
+    </div>
+    <div class="form-group">
+        <label class="l1">Area / Location:</label>
+        <input type="text" class="form-control" placeholder="Area / Location">
+    </div>
+    <div class="form-group">
+        <label class="l1">City:</label>
+        <select name="title" class="form-control">
+            <option >Pune</option>
+            <option>Nashik</option>
+            <option>Wardha</option>
+            <option>Nagpur</option>
+        </select>
+        
+    </div>
+    <div class="form-group">
+        <label class="l1">Taluka:</label>
+        <select name="title" class="form-control">
+            <option >Wardha</option>
+        <option >Nashik</option>
+        <option>Nagpur</option>
+        </select>
+       
+    </div>
+    <div class="form-group">
+        <label class="l1">Dist:</label>
+        <select name="title" class="form-control">
+            <option >Mumbai</option>
+        <option >Nagpur</option>
+        <option>Pune</option>
+        </select>
+       
+    </div>
+    <div class="form-group">
+        <label class="l1">State:</label>
+        <select name="title" class="form-control">
+            <option >Maharashtra</option>
+        <option >Rajasthan</option>
+        <option>Goa</option>
+        </select>
+    </div>
+   </fieldset>
+
+        <fieldset>
+        <div class="form-group">
+            <fieldset class="">
+                <legend class="z1">Name of Buyer:<strong></legend>
+                <div class="form-row">
+                    <div class="form-group col-md-3 ">
+                        <label>Title</label>
+                        <select name="title" class="form-control">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 ">
+                        <label>First Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 ">
+                        <label>Middle Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 ">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </fieldset>
+    <div class="form-group">
+        <label class="l1">Contact Number:</label>
+        <input type="tel" class="form-control" placeholder="Contact Number">
+    </div>
+    <div class="form-group">
+        <label class="l1">Alternate Number:</label>
+        <input type="tel" class="form-control" placeholder="Alternate Number">
+    </div>
+    <div class="form-group">
+        <label class="l1">Address:</label>
+        <input type="text" class="form-control" placeholder="Address">
+    </div>
+    <div class="form-group">
+        <label class="l1">Pincode:</label>
+        <input type="text" class="form-control" placeholder="Pincode">
+    </div>
+    <div class="form-group">
+        <label class="l1">Area / Location:</label>
+        <input type="text" class="form-control" placeholder="Area / Location">
+    </div>
+    <div class="form-group">
+        <label class="l1">City:</label>
+        <select name="title" class="form-control">
+            <option >Pune</option>
+            <option>Nashik</option>
+            <option>Wardha</option>
+            <option>Nagpur</option>
+        </select>
+       
+    </div>
+    <div class="form-group">
+        <label class="l1">Taluka:</label>
+        <select name="title" class="form-control">
+            <option >Wardha</option>
+        <option >Nashik</option>
+        <option>Nagpur</option>
+        </select>   
+    </div>
+    <div class="form-group">
+        <label class="l1">Dist:</label>
+        <select name="title" class="form-control">
+            <option >Mumbai</option>
+        <option >Nagpur</option>
+        <option>Pune</option>
+        </select>
+        
+    </div>
+    <div class="form-group">
+        <label class="l1">State:</label>
+        <select name="title" class="form-control">
+            <option >Maharashtra</option>
+        <option >Rajasthan</option>
+        <option>Goa</option>
+        </select>
+       
+    </div>
+</fieldset>
+</fieldset>
+
+<div class="z1">
+    <label>Is Broker Included</label>
+    <input type="checkbox" id="brokerCheckbox" class="form-control" onclick="toggleBrokerFields()">
+
+                    <fieldset class="" id="brokerFieldset">
+                        <legend class="z1" >Name of Broker:</legend>
+                        <div class="form-row">
+                            <div class="form-group col-md-3 z1">
+                                <label>Title</label>
+                                <select name="title" class="form-control">
+                                    <option value="Mr.">Mr.</option>
+                                    <option value="Mrs.">Mrs.</option>
+                                    <option value="Miss">Miss</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label>First Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label>Middle Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+    <div class="form-group">
+        <label class="l1">Contact Number:</label>
+        <input type="tel" class="form-control" placeholder="Contact Number">
+    </div>
+    <div class="form-group">
+        <label class="l1">Alternate Number:</label>
+        <input type="tel" class="form-control" placeholder="Alternate Number">
+    </div>
+    <div class="form-group">
+        <label class="l1">Address:</label>
+        <input type="text" class="form-control" placeholder="Address">
+    </div>
+    <div class="form-group">
+        <label class="l1">Pincode:</label>
+        <input type="text" class="form-control" placeholder="Pincode">
+    </div>
+    <div class="form-group">
+        <label class="l1">Area / Location:</label>
+        <input type="text" class="form-control" placeholder="Area / Location">
+    </div>
+    <div class="form-group">
+        <label class="l1">City:</label>
+        <select name="title" class="form-control">
+            <option >Pune</option>
+            <option>Nashik</option>
+            <option>Wardha</option>
+            <option>Nagpur</option>
+        </select>
+       
+    </div>
+    <div class="form-group">
+        <label class="l1">Taluka:</label>
+        <select name="title" class="form-control">
+            <option >Wardha</option>
+        <option >Nashik</option>
+        <option>Nagpur</option>
+        </select>
+       
+    </div>
+    <div class="form-group">
+        <label class="l1">Dist:</label>
+        <select name="title" class="form-control">
+            <option >Mumbai</option>
+        <option >Nagpur</option>
+        <option>Pune</option>
+        </select>
+       
+    </div>
+    <div class="form-group">
+        <label class="l1">State:</label>
+        <select name="title" class="form-control">
+            <option >Maharashtra</option>
+        <option >Rajasthan</option>
+        <option>Goa</option>
+        </select>
+       
+    </div>
+</div>
+
+
+                </div>
+                <div class="col-md-6">
+                    <!-- Add more fieldsets for Buyer, Vehicle, and Broker details -->
+                </div>
+            </div>
+            <div align="center">
+            <!-- Add more fieldsets here for Buyer, Vehicle, and Broker details -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>    
+        </fieldset>
+        </form>
+    </div>
+
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

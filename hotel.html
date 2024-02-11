@@ -1,0 +1,635 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CVIRMS</title>
+    <meta name="description" content="CVIRMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <link rel="shortcut icon" href="images/cvirms_logo.png">
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+
+             /* Style the dropdown menu */
+    .user-menu {
+    display: none; /* Hide the menu by default */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+    /* Style the menu items */
+    .user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+    /* Change the background color and text color on hover */
+    .user-menu a:hover {
+    background-color: #b4d0de;
+    color: #fff;
+}
+
+    /* Show the dropdown menu when the parent element is hovered */
+    .dropdown:hover .user-menu {
+    display: block;
+}
+
+
+    .card:hover {
+        transform: scale(1.00); /* Enlarge the card slightly on hover */
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+        #main-menu a {
+        color: black !important;
+    }
+    
+        #language {
+    margin-top: 0; /* Remove top margin */
+    padding: 10px 0px; /* Adjust padding as needed */
+    }
+        #emergency{
+            background-color: #e0c8f7;
+        }
+        #notice{
+            background-color: #f7c8c6;
+        }
+        #Add{
+            background-color: #c1e2b3;
+
+        }
+        #support{
+            background-color: #e6f7ff;
+        }
+        .card{
+            border-radius: 20px;
+        }
+
+        .logo {
+    display: inline-flex;
+    align-items: center;
+    color: white; /* Set text color to white */
+   
+    padding: 5px 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.logo i {
+    margin-right: 5px; /* Add spacing between the icon and text */
+}
+
+
+
+/* Dropdown Menu Background */
+.dropdown-menu {
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc; /* Dropdown Menu Border */
+    border-radius: 5px; /* Rounded corners for the dropdown menu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Dropdown Menu Items Text Color */
+.dropdown-item {
+    color: #333333;
+}
+
+/* Hover Color (Background) */
+.dropdown-item:hover {
+    background-color: #b4d0de;
+    color: #555555; /* Text color for hovered item */
+}
+
+/* Highlight Color (Active Item) */
+.dropdown-item.active {
+    background-color: #e0e0e0;
+}
+
+/* Remove underlines from links inside dropdown items */
+.dropdown-item a {
+    text-decoration: none;
+}
+
+/* Optional: Increase spacing between items for better readability */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+}
+
+/* Optional: Style the dropdown toggle button */
+.navbar-toggler-icon {
+    color: #333333;
+}
+.green-button {
+    background-color: green !important;
+}
+
+.page-title{
+    background-color:#555555;
+    color: white;
+    max-width: 100%;
+    text-align: center;
+}
+.btn-primary{
+    cursor: pointer;
+
+}
+
+
+
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+   
+    <script>
+        var AccType = 'NONE'; 
+        var id =  sessionStorage.getItem("memberId");
+         
+        if(id === null){
+            window.location = './index.html';
+        }
+        
+        
+        getentries();
+        function getentries(){
+          
+           console.log(id);
+        //   getType(id);
+           getType(id);
+           console.log("id");
+           fetch(`https://localhost/member/`+id)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the response message element with the received data
+                    //document.getElementById("response").innerHTML = data;
+                    console.log(data);
+                    document.getElementById("numOfVisitors").textContent = data.length; 
+                     createTable(data)
+                    
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+        
+        
+        
+        
+        function createTable(credentialsArray) {
+            var table = document.getElementById("data-table");
+            var tableBody = table.querySelector("tbody");
+
+            credentialsArray.forEach(function (credential, index) {
+                var row = tableBody.insertRow();
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+                var cell7 = row.insertCell(6);
+                var cell8 = row.insertCell(7);
+
+                // Display the credential data
+                cell1.innerHTML = `${credential.checkIn}`;
+                cell2.textContent = `${credential.visitor.firstName} ${credential.visitor.middleName} ${credential.visitor.lastName}`;
+                cell3.textContent = `contact : ${credential.visitor.contact}  \n email: ${credential.visitor.email}`;
+                cell4.textContent = `${credential.visitor.document} `;
+                cell5.textContent = credential.remark||"no guests";
+                 cell7.textContent = credential.document||"***1313";
+                // Create a button for each entry
+                var button = document.createElement("button");
+                button.innerHTML = "Check Out";
+                button.addEventListener("click", function () {
+                    // Handle button click action here
+                    alert(`Checked Out ${index}`);
+                });
+
+                cell6.appendChild(button);
+                
+                var button2 = document.createElement("button");
+                button2.textContent = "Update";
+                button2.addEventListener("click", function () {
+                    // Handle button click action here
+                    alert("updated");
+                });
+
+                cell8.appendChild(button2);
+                
+            });
+        }
+        
+      
+             function getType(id){
+                 console.log("hi");
+                  fetch(`https://localhost/member/`+id+'/type')
+                .then(response => response.text())
+                 .then(data => {
+                    AccType = data;
+                 setDashboard(AccType);
+                             })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+                console.log("bye");
+                 
+             }
+             function setDashboard(data){
+               
+                 
+                    if(data==="TENANT"){
+                        document.getElementById("addText").textContent = 'Add Tenant';
+                        
+                         
+                      
+                    }
+                    var b = data[0];
+                    for(var i = 1;i<data.length;i++){
+                        b+=data[i].toLowerCase();
+                    }
+                    // console.log(b);
+                    document.getElementById("accType").textContent = b +' Dashboard'; 
+                        
+                
+                    // Display the response on the page
+                  
+             }
+             
+              
+
+       
+      
+    </script>
+</head>
+
+<body>
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel" style="background-color: #bab6b6;">
+        <nav class="navbar navbar-expand-sm navbar-default" style="background-color: #bab6b6;">
+            <div class="navbar-header" >
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #bab6b6;">
+                    <i class="fa fa-bars" ></i>
+                </button>
+                <a class="navbar-brand" href="dashboard.html" style="background-color: #bab6b6;">
+                    <img src="images/cvirms_logo.png" alt="Logo" width="130px">
+                </a>   
+                
+            </div>
+            
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="menu-icon fa fa-home"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Home
+                        </a>
+                    </li>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="employee.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Add Employee
+                        </a>
+                    </li>
+                    
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="foreign_visitor.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                            Foreign Visitor
+                        </a>
+                    </li>
+
+                   
+
+
+        
+            
+                   
+                    
+                    <li class="nav-item dropdown active"> <!-- Use the 'nav-item dropdown' class -->
+                        <a class="nav-link dropdown-toggle ml-auto" href="#" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            <i class="menu-icon fa fa-language black-menu-icon" aria-hidden="true" aria-hidden="true" style="color: black;"></i> Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language">
+                            <a class="dropdown-item" href="#" >Hindi</a>
+                            <a class="dropdown-item" href="#" >English</a>
+                            <a class="dropdown-item" href="#" >Marathi</a>
+                            <a class="dropdown-item" href="#" >Kannada</a>
+                            <a class="dropdown-item" href="#" >Telugu</a>
+                            <a class="dropdown-item" href="#" >Malayalam</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </aside><!-- /#left-panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header" style="background-color:#bab6b6;">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                            <button class="search-trigger" style="margin-right: 70px; " ><input type="submit" value="Search" style="width: 100px;"></i></button>
+                            <div class="form-inline" style="background-color: #BAB6B6 ;">
+                                <form class="search-form" style="background-color: #BAB6B6;">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search" style="background-color: #BAB6B6;color: black;">
+                                    <button class ="search-close" type="submit"><i style="color: black"; class ="fa fa-close"></i></button>
+                                </form>
+                            </div>
+
+                       
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/noprofile.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="dropdown">
+                            <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                              
+                                <a class="nav-link" onclick="out()"><i class="fa fa-power-off"></i> Logout</a>
+                                <script>
+                                    function out(){
+                                        sessionStorage.clear();
+                                        window.location.href = "index.html";
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div id="language-select">
+                        <a id="profile" aria-haspopup="true" aria-expanded="true">
+                            <p style="color: black;">Profile</p>
+                        </a>
+                    </div>
+
+                 </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+        <div class="page-title">
+          
+            <h1 id = 'accType'>Hotel Dashboard</h1>
+        </div>
+        
+        <div class="content mt-3">
+            <div class="col-xl-3 col-lg-3">
+                <a href="hotel_lodge_visitorform.html">
+                    <div class="card" id="Add" style="border: 2px solid #0b0b0b;">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-user" style="color: #333;"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="text-dark font-weight-bold" id="addText" >Add Visitor</div>
+                                    <div class="text-dark font-weight-bold" id='numOfVisitors'>00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="col-xl-3 col-lg-3">
+                <a href="support1.html">
+                    <div class="card" id="support" style="border: 2px solid #0b0b0b;">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="fa fa-phone-square" style="color: #333;"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="text-dark font-weight-bold">Support</div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="col-xl-3 col-lg-3">
+                <a href="notice.html">
+                    <div class="card" id="notice" style="border: 2px solid #000000;">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="fa fa-bell-o" style="color: #333;"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="text-dark font-weight-bold">Notice</div>
+                                    <div class="text-dark font-weight-bold">00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="col-xl-3 col-lg-3">
+                <a href="emergency _.html">
+                    <div class="card" id="emergency" style="border: 2px solid #000000;">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="fa fa-exclamation-triangle" style="color: #333;"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="text-dark font-weight-bold">Emergency</div>
+                                    <div class="text-dark font-weight-bold">00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+            <!-- this is kunal  -->
+            
+            <table class="table" id="data-table">
+                <thead>
+                    <th>Check In</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Vehicle</th>
+                    <th>Guest Details</th>
+                    <th>Check Out </th>
+                    <th>Document Id</th>
+                    <th>update</th>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09-09-2023</td>
+                        <td>kunal</td>
+                        <td>1234567890</td>
+                        <td>5346773434</td>
+                        <td>
+                            <ul>
+                                <li>guest one</li>
+                                <li>guest two</li>
+                                <li>guest three</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <input type="button" class="btn-danger" id="ChechIn" name="myButton" value="Check Out" onclick="changeColor(this)"  onchange="showCheckout()">
+                          </td>
+                          
+
+                        <td>***23</td>
+                        
+                        <td><button type="button" class="btn-primary" onclick="document.location='./visitor_view.html'">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- this is kunal  -->
+         </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+   
+    <script>
+        function changeColor(button) {
+            // Check the current text of the button
+            if (button.textContent === "Check Out") {
+                // Change the background color to green
+                
+                // Change the button text to "Check In"
+                button.textContent = "Check out";
+            } else {
+                    // here we need one function that will ask for a calener input
+                    time.showModal();
+                // Change the background color back to the default
+                button.style.backgroundColor = "";
+                // Change the button text back to "Check Out"
+                button.textContent = "Check Out";
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--<script src="script.js"></script>-->
+    
+<script>
+$(document).ready(function() {
+    $("#ChechIn").datepicker();
+    
+    
+})
+</script>
+
+   
+
+
+    
+
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/widgets.js"></script>
+    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+     <script>
+
+        function update(id){
+            console.log(id);
+            console.log("user is updated");
+        }
+
+   console.log('hello');
+        document.getElementById("home-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default behavior of the link
+            location.reload(); // Reload the current page
+        });
+
+            // this line will fetch data
+            fetch('https://localhost:8080/member/1')
+  .then(response => {
+    
+    return response.json(); // Convert the response to JSON
+  })
+  .then(data => {
+    // Now 'data' is a JavaScript object containing the JSON data
+    console.log(data);
+
+    const table = document.getElementById('data-table');
+    const tbody = table.querySelector('tbody');
+    data.forEach(item => {
+    const row = document.createElement('tr');
+    row.innerHTML = 
+    `   <td>${item.checkIn}</td>
+        <td>${item.checkOut}</td>
+        <!-- Add more <td> elements for additional columns -->`;
+    tbody.appendChild(row);})
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
+  
+  
+  
+  
+  
+  
+
+    </script>
+
+</body>
+
+</html>

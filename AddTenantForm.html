@@ -1,0 +1,860 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CVIRMS</title>
+    <meta name="description" content="CVIRMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link rel="shortcut icon" href="images/cvirms_logo.png">
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+                /* Style the dropdown menu */
+    .user-menu {
+    display: none; /* Hide the menu by default */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+    /* Style the menu items */
+    .user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+    /* Change the background color and text color on hover */
+    .user-menu a:hover {
+    background-color: #b4d0de;
+    color: #fff;
+}
+
+    /* Show the dropdown menu when the parent element is hovered */
+    .dropdown:hover .user-menu {
+    display: block;
+}
+
+
+    .card:hover {
+        transform: scale(1.00); /* Enlarge the card slightly on hover */
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+        #main-menu a {
+        color: black !important;
+    }
+    
+        #language {
+    margin-top: 0; /* Remove top margin */
+    padding: 10px 0px; /* Adjust padding as needed */
+    }
+   
+        .logo {
+    display: inline-flex;
+    align-items: center;
+    color: white; /* Set text color to white */
+   
+    padding: 5px 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.logo i {
+    margin-right: 5px; /* Add spacing between the icon and text */
+}
+
+
+
+/* Dropdown Menu Background */
+.dropdown-menu {
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc; /* Dropdown Menu Border */
+    border-radius: 5px; /* Rounded corners for the dropdown menu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Dropdown Menu Items Text Color */
+.dropdown-item {
+    color: #333333;
+}
+
+/* Hover Color (Background) */
+.dropdown-item:hover {
+    background-color: #b4d0de;
+    color: #555555; /* Text color for hovered item */
+}
+
+/* Highlight Color (Active Item) */
+.dropdown-item.active {
+    background-color: #e0e0e0;
+}
+
+/* Remove underlines from links inside dropdown items */
+.dropdown-item a {
+    text-decoration: none;
+}
+
+/* Optional: Increase spacing between items for better readability */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+}
+
+/* Optional: Style the dropdown toggle button */
+.navbar-toggler-icon {
+    color: #333333;
+}
+.green-button {
+    background-color: green !important;
+}
+.highlighted-header {
+            background-color: #757575; /* Change to your preferred highlight color */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .guest-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .guest-container select,
+        .guest-container input {
+            flex: 1;
+        }
+   
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        select,
+        textarea,
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        
+        input[type="submit"] {
+           
+         
+            
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #g1,#g2,#g3,#g4,#g5{
+            display: none;
+        }
+       
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Add this CSS to put Pronoun, First Name, Middle Name, and Last Name in the same line */
+        .name-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .name-container input[type="text"] {
+            width: 30%; /* Adjust the width as needed */
+        }
+        .guestss{
+            width: 50%;
+        }
+              
+    </style>
+    <script>
+
+       
+    async function sendDataToAPI() {
+        
+        if(startDate.value===null){
+            
+            alert('add checkIn Date');
+            return;
+        }
+        if(contactNo.value.length<10){
+            alert('please add valid number');
+            return;
+        }
+        
+        const form = document.getElementById('tenantForm');
+        const docPhotoInput = document.getElementById('docPhotoId');
+       
+   
+    const hotelEntryData = {
+    "checkIn":startDate.value,
+    "checkOut":checkoutDate.value,
+
+    "guests": [
+           
+        ],
+   
+    "remark":[],
+    "visitor":{
+        "firstName":firstName.value,
+        "middleName":middleName.value,
+        "lastName":lastName.value,
+        "gender": gender.value,
+        "contact":contactNo.value,
+        "address": address.value,
+         "vehicleNumber":vehicleNoTextField.value,
+          "document":{
+               "name":""+document.getElementById("scannedPhotoId").value ,
+               "number":documentId.value
+                 }
+        
+    }
+  
+  
+    
+   
+
+};
+  
+    //  const numOfGuests = parseInt(document.getElementById('numOfGuests').value);
+    //         for (let i = 1; i <= numOfGuests; i++) {
+    //             const guest = {
+    //                 "name": document.getElementById(`name${i}`).value,
+    //                 "gender": document.getElementById(`gender${i}`).value,
+    //             };
+    //             // hotelEntryData.guests.push(guest);
+    //         }
+        
+        try {
+           
+           
+            console.log(JSON.stringify(hotelEntryData));
+            var endpoint = 'https://localhost/member/'+id+'/add';
+            
+
+            var response = await fetch (endpoint,{method:'POST' , headers:{'Content-Type': 'application/json'},body:JSON.stringify(hotelEntryData)});
+
+            if(response.status===201){
+                // console.log("yes");
+                window.alert("entry done");
+                window.location = 'index.html';
+                
+                }
+                else{
+                    console.log(response.status);
+                   console.log(response);
+                }
+        } catch (error) {
+            console.error('Error in sendDataToAPI:', error);
+        }
+    }
+    
+   
+    const form = document.getElementById('tenantForm');
+    // form.addEventListener('submit', function (event) {
+    //     event.preventDefault(); // Prevent the default form submission
+    //     sendDataToAPI(); // Call the function to process the form data
+    // });
+
+
+  
+    
+</script>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+    
+            var AccType = 'NONE'; 
+            var id =  sessionStorage.getItem("memberId");
+         
+            if(id === null){
+                window.location = './index.html';
+            }
+    
+
+        function update(id){
+            console.log(id);
+            console.log("user is updated");
+        }
+
+   
+        function showGuest(){
+            var value = document.getElementById('numOfGuests').value;
+            console.log(value);
+            var element = document.getElementById('guestsInput');
+            var childs = element.querySelectorAll('*');
+            for(var a = 0;a<value;a++){
+                    childs[a].style.display = 'block';
+            }
+        }
+        
+        // const fileURL = `https://drive.google.com/file/d/18HtCFhSbUg46f0x3Bc0KXmJmUBx5gT1S/view?usp=sharing`;
+          const fileURL = `https://drive.google.com/file/d/18HtCFhSbUg46f0x3Bc0KXmJmUBx5gT1S/view?usp=sharing`;
+          fetch(fileURL)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Print the JSON data to the console
+                
+            })
+            .catch(error => console.error('Error:', error));
+        
+    </script>
+</head>
+
+<body>
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel" style="background-color: #bab6b6;">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div class="navbar-header" >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars" ></i>
+                </button>
+                <a class="navbar-brand" href="index.html" style="background-color: #bab6b6;">
+                    <img src="images/cvirms_logo.png" alt="Logo" width="130px">
+                </a>   
+                
+            </div>
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="menu-icon fa fa-home"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Home
+                        </a>
+                    </li>
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="Employee.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i> <!-- User icon -->
+                            Add Employee
+                        </a>
+                    </li>    
+                    
+                    
+                    <li class="active">
+                        <a href="foreignVisitorForm.html">
+                            <i class="menu-icon fa fa-user-secret"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Foreign Visitor
+                        </a>
+                    </li>
+
+                   
+                    
+                    <li class="nav-item dropdown active"> <!-- Use the 'nav-item dropdown' class -->
+                        <a class="nav-link dropdown-toggle ml-auto" href="#" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            <i class="menu-icon fa fa-language black-menu-icon" aria-hidden="true" aria-hidden="true" style="color: black;"></i> Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language">
+                            <a class="dropdown-item" href="#" >Hindi</a>
+                            <a class="dropdown-item" href="#" >English</a>
+                            <a class="dropdown-item" href="#" >Marathi</a>
+                            <a class="dropdown-item" href="#" >Kannada</a>
+                            <a class="dropdown-item" href="#" >Telugu</a>
+                            <a class="dropdown-item" href="#" >Malayalam</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </aside><!-- /#left-panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header" style="background-color:#bab6b6;">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger" style="margin-right: 70px; " ><input type="submit" value="Search" style="width: 100px;"></i></button>
+                        <div class="form-inline" style="background-color: #BAB6B6  ;">
+                            <form class="search-form"  style="background-color: #BAB6B6;">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search" style="background-color: #BAB6B6;color: black;">
+                                <button  class ="search-close" type="submit"><i style="color: black"; class  ="fa fa-close"></i></button>
+                            </form>
+                        </div>
+
+                        <div class="dropdown for-notification">
+                         
+                            <div class="dropdown-menu" aria-labelledby="notification">
+                                <p class="red">You have 3 Notification</p>
+                                <a class="dropdown-item media bg-flat-color-1" href="#">
+                                <i class="fa fa-check"></i>
+                                <p>Server #1 overloaded.</p>
+                            </a>
+                                <a class="dropdown-item media bg-flat-color-4" href="#">
+                                <i class="fa fa-info"></i>
+                                <p>Server #2 overloaded.</p>
+                            </a>
+                                <a class="dropdown-item media bg-flat-color-5" href="#">
+                                <i class="fa fa-warning"></i>
+                                <p>Server #3 overloaded.</p>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                        </a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+
+                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                        </div>
+                    </div>
+
+                    <div id="language-select">
+                        <a id="profile" aria-haspopup="true" aria-expanded="true">
+                            <p style="color: black;">Profile</p>
+                        </a>
+                    </div>
+
+                 </div>
+
+                </header><!-- /header -->
+                <!-- Header-->
+               
+        
+                <body>
+                    <body>
+                        <h1 class="text-center highlighted-header">Add Tenant</h1>
+                        <form action="#"  class="container" id = 'tenantForm'>
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label for="title">Title:</label>
+                                    <select id="title" name="title" class="form-control">
+                                        <option value="Mr.">Mr.</option>
+                                        <option value="Mrs.">Mrs.</option>
+                                        <option value="Miss">Miss</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="firstName">First Name:</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="middleName">Middle Name:</label>
+                                    <input type="text" id="middleName" name="middleName" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="lastName">Last Name:</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control">
+                                </div>
+                            </div>
+                    
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select><br>
+                         
+                            <label for="contactNo">Contact No:</label>
+                            <input type="tel" id="contactNo" name="contactNo" pattern="[0-9]{10,}"><br>
+                            
+                            <label for="numOfGuests">Number of Guests:</label>
+                        <select id="numOfGuests" name="numOfGuests" onchange="showGuestFields()">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br>
+                        <div id="guestsInput"></div>
+                    
+                        <script>
+                            function showGuestFields() {
+                                var numOfGuests = document.getElementById("numOfGuests").value;
+                                var guestsInput = document.getElementById("guestsInput");
+                                guestsInput.innerHTML = ""; // Clear previous fields
+                    
+                                for (var i = 1; i <= numOfGuests; i++) {
+                                    var guestDiv = document.createElement("div");
+                                    guestDiv.className = "guest-container";
+                    
+                                    var nameLabel = document.createElement("label");
+                                    nameLabel.setAttribute("for", "name" + i);
+                                    
+                    
+                                    var nameInput = document.createElement("input");
+                                    nameInput.type = "text";
+                                    nameInput.name = "name" + i;
+                                    nameInput.id = "name" + i;
+                                    nameInput.placeholder = "Name";
+                    
+                                    var genderLabel = document.createElement("label");
+                                    genderLabel.setAttribute("for", "gender" + i);
+                                    
+                    
+                                    var genderSelect = document.createElement("select");
+                                    genderSelect.name = "gender" + i;
+                                    genderSelect.id = "gender" + i;
+                    
+                                    var maleOption = document.createElement("option");
+                                    maleOption.value = "male";
+                                    maleOption.textContent = "Male";
+                    
+                                    var femaleOption = document.createElement("option");
+                                    femaleOption.value = "female";
+                                    femaleOption.textContent = "Female";
+                    
+                                    var otherOption = document.createElement("option");
+                                    otherOption.value = "other";
+                                    otherOption.textContent = "Other";
+                    
+                                    genderSelect.appendChild(maleOption);
+                                    genderSelect.appendChild(femaleOption);
+                                    genderSelect.appendChild(otherOption);
+                    
+                                    guestDiv.appendChild(nameLabel);
+                                    guestDiv.appendChild(nameInput);
+                                    guestDiv.appendChild(genderLabel);
+                                    guestDiv.appendChild(genderSelect);
+                    
+                                    guestsInput.appendChild(guestDiv);
+                                }
+                            }
+                        </script>
+                    
+                        
+                        <div>
+                         <label for="familyType">Select Family Type:</label>
+                        <select id="familyType" onchange="handleFamilyTypeChange()">
+                          <option value="family">Family</option>
+                          <option value="student">Student</option>
+                          <option value="employee">Employee</option>
+                          <option value="selfEmployed">Self Employed</option>
+                        </select><br>
+                        
+                        <div id="adultCountContainer" style="display: none;">
+                          <label for="adultCount">Number of Adults:</label>
+                          <select id="adultCount" onchange="generateNameFields('adult', this.value)">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select><br>
+                        </div>
+                        
+                        <div id="adultNames"></div>
+                        
+                        <div id="childCountContainer" style="display: none;">
+                          <label for="childCount">Number of Children:</label>
+                          <select id="childCount" onchange="generateNameFields('child', this.value)">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select><br>
+                        </div>
+                        
+                        <div id="childNames"></div>
+                        
+                        <div id="studentInfo" style="display: none;">
+                          <label for="studentId">Student ID:</label>
+                          <input type="text" id="studentId" name="studentId"><br>
+                          
+                          <label for="collegeName">College Name:</label>
+                          <input type="text" id="collegeName" name="collegeName"><br>
+                        </div>
+                        
+                        <div id="employeeInfo" style="display: none;">
+                          <label for="employeeId">Employee ID:</label>
+                          <input type="text" id="employeeId" name="employeeId"><br>
+                          
+                          <label for="companyName">Company Name:</label>
+                          <input type="text" id="companyName" name="companyName"><br>
+                        </div>
+                      </form>
+                    
+                      <script>
+                        function handleFamilyTypeChange() {
+                          const familyType = document.getElementById('familyType').value;
+                          const adultCountContainer = document.getElementById('adultCountContainer');
+                          const childCountContainer = document.getElementById('childCountContainer');
+                          const studentInfo = document.getElementById('studentInfo');
+                          const employeeInfo = document.getElementById('employeeInfo');
+                          
+                          if (familyType === 'family') {
+                            adultCountContainer.style.display = 'block';
+                            childCountContainer.style.display = 'block';
+                            studentInfo.style.display = 'none';
+                            employeeInfo.style.display = 'none';
+                          } else if (familyType === 'student') {
+                            adultCountContainer.style.display = 'none';
+                            childCountContainer.style.display = 'none';
+                            studentInfo.style.display = 'block';
+                            employeeInfo.style.display = 'none';
+                          } else if (familyType === 'employee') {
+                            adultCountContainer.style.display = 'none';
+                            childCountContainer.style.display = 'none';
+                            studentInfo.style.display = 'none';
+                            employeeInfo.style.display = 'block';
+                          } else {
+                            adultCountContainer.style.display = 'none';
+                            childCountContainer.style.display = 'none';
+                            studentInfo.style.display = 'none';
+                            employeeInfo.style.display = 'none';
+                          }
+                          
+                          document.getElementById('adultNames').innerHTML = '';
+                          document.getElementById('childNames').innerHTML = '';
+                        }
+                    
+                        function generateNameFields(type, count) {
+                            const container = document.getElementById(type + 'Names');
+                            container.innerHTML = '';
+                    
+                            for (let i = 1; i <= count; i++) {
+                                const div = document.createElement('div');
+                                div.classList.add('guest-container');
+                    
+                                const nameLabel = document.createElement('label');
+                                nameLabel.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} ${i} Name: `;
+                    
+                                const nameInput = document.createElement('input');
+                                nameInput.type = 'text';
+                                nameInput.name = type + i;
+                    
+                                // Create a gender dropdown
+                                const genderLabel = document.createElement('label');
+                               
+                                const genderSelect = document.createElement('select');
+                                genderSelect.name = 'gender' + i;
+                                genderSelect.id = 'gender' + i;
+                    
+                                const maleOption = document.createElement('option');
+                                maleOption.value = 'male';
+                                maleOption.textContent = 'Male';
+                    
+                                const femaleOption = document.createElement('option');
+                                femaleOption.value = 'female';
+                                femaleOption.textContent = 'Female';
+                    
+                                const otherOption = document.createElement('option');
+                                otherOption.value = 'other';
+                                otherOption.textContent = 'Other';
+                    
+                                genderSelect.appendChild(maleOption);
+                                genderSelect.appendChild(femaleOption);
+                                genderSelect.appendChild(otherOption);
+                    
+                                div.appendChild(nameLabel);
+                                div.appendChild(nameInput);
+                                div.appendChild(genderLabel);
+                                div.appendChild(genderSelect);
+                    
+                                container.appendChild(div);
+                            }
+                        }
+                      </script>
+                           
+                            
+                            <label for="address">Address:</label>
+                            <textarea id="address" name="address"></textarea><br>
+                            
+                            <label for="pincode">Pincode:</label>
+                            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6,}"><br>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" id="vehicleNo" name="vehicleNo" class="form-check-input">
+                                    <label for="vehicleNo" class="form-check-label">Vehicle No:</label>
+                                </div>
+                                <div id="vehicleNoTextFieldContainer" style="display: none;">
+                                    <input type="text" id="vehicleNoTextField" name="vehicleNoTextField" class="form-control" placeholder="Enter Vehicle No">
+                                </div>
+                            </div>
+                            
+                            
+                            <label for="photoId">Upload Photo ID:</label>
+                            <input type="file" id="photoId" name="photoId"><br><br>
+                    
+                            <label for="uploadPhoto">Upload Profile Photo:</label>
+                            <input type="file" id="uploadPhoto" name="uploadPhoto" accept="image/*"><br><br>
+                            
+                            <label for="scannedPhotoId">Scanned Photo ID:</label>
+                            <select id="scannedPhotoId" name="scannedPhotoId">
+                                <option value="passport">Passport</option>
+                                <option value="driverLicense">Driver's License</option>
+                                <option value="idCard">ID Card</option>
+                                <option value="other">Other</option>
+                            </select><br>
+                            
+                            <label for="documentId">Document ID:</label>
+                            <input type="text" id="documentId" name="documentId"><br>
+                    
+                           
+                                        
+                            <div class="col-md-10">
+                                <label for="startDate">Tenancy Check In:</label>
+                                <input type="datetime-local" id="startDate" name="startDate" class="form-control" required>
+                            </div>
+                            
+                            <div class="col-md-10">
+                                <label for="checkoutDate" class="col-md-2 col-form-label">Tenancy CheckOut:</label>
+                                <input type="datetime-local" id="checkoutDate" name="checkoutDate" class="form-control">
+                                <span id="checkoutDateError" class="text-danger"></span>
+                            </div>
+                            
+                            <script>
+                                // JavaScript to perform date validation
+                                const startDateInput = document.getElementById('startDate');
+                                const checkoutDateInput = document.getElementById('checkoutDate');
+                                const checkoutDateError = document.getElementById('checkoutDateError');
+                            
+                                checkoutDateInput.addEventListener('input', function () {
+                                    const startDateValue = new Date(startDateInput.value);
+                                    const checkoutDateValue = new Date(checkoutDateInput.value);
+                            
+                                    if (startDateValue > checkoutDateValue) {
+                                        checkoutDateError.textContent = 'Checkout Date cannot be earlier than Agreement Start Date.';
+                                        checkoutDateInput.setCustomValidity('Invalid');
+                                    } else {
+                                        checkoutDateError.textContent = '';
+                                        checkoutDateInput.setCustomValidity('');
+                                    }
+                                });
+                            </script>
+                            
+                           
+                            <br><br>         <br><br>         <br><br>         <br>
+                            
+                            <label for="remark">Remark:</label>
+                            <textarea id="remark" name="remark"></textarea><br>
+                            
+                            <input onclick='sendDataToAPI()'  class="btn btn-primary" value="Submit">
+                        </form>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                        <script>
+                            // JavaScript to toggle the visibility of the Vehicle No text field
+                            const vehicleNoCheckbox = document.getElementById('vehicleNo');
+                            const vehicleNoTextFieldContainer = document.getElementById('vehicleNoTextFieldContainer');
+                    
+                            vehicleNoCheckbox.addEventListener('change', function () {
+                                if (this.checked) {
+                                    vehicleNoTextFieldContainer.style.display = 'block';
+                                } else {
+                                    vehicleNoTextFieldContainer.style.display = 'none';
+                                }
+                            });
+                        </script>
+                    </body>
+                    
+                
+                    
+           
+        
+    </div><!-- /#right-panel -->
+
+    <!-- Check out button green colour-->
+
+    
+    <!-- Right Panel -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/widgets.js"></script>
+    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+   
+        
+
+</body>
+
+</html>
+
+

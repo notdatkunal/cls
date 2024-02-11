@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Time Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px; /* Larger font size for impact */
+            letter-spacing: 2px; /* Add some letter spacing */
+        }
+
+        .step {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .step h2 {
+            font-size: 24px; /* Slightly larger step titles */
+            margin: 0;
+            color: #0077b6; /* Highlighted step titles */
+        }
+
+        .action-link {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .action-link:hover {
+            text-decoration: underline;
+        }
+
+       /* Add this CSS to your existing styles */
+.action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #005e93;
+}
+
+
+       /* Add this CSS to your existing styles */
+.step-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px; /* Increased space between images and text */
+    border: 2px solid black; /* Add a 2px solid border with the color #0077b6 */
+    padding: 5px; /* Add some padding to the image inside the border */
+}
+
+
+        .completed-message {
+            text-align: center;
+            font-size: 24px;
+            color: #0077b6;
+            margin-top: 20px; /* Added space above the completion message */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>For First Time Login</h1>
+    </header>
+
+    <section class="step">
+        <h2>Step 1:</h2>
+        <p>Click the link below to proceed to the next page:</p>
+        <a href="https://localhost/" class="action-button">Link</a>
+
+    </section>
+
+    <section class="step">
+        <h2>Step 2:</h2>
+        <p>On the next page, click on the "Advanced" button below:</p>
+        <button class="action-button">Advanced</button>
+        <p>After clicking "Advanced," you will see an image:</p>
+        <img src="advanced.png" alt="Image 1" class="step-image">
+    </section>
+
+    <section class="step">
+        <h2>Step 3:</h2>
+        <p>Click on "Proceed to 103.224.241.198(unsafe)" to continue:</p>
+        <button class="action-button">Proceed to 103.224.241.198(unsafe)</button>
+        <img src="proceed.png" alt="Image 2" class="step-image">
+    </section>
+
+    <section class="step">
+        <h2>Step 4:</h2>
+        <p>After clicking "Proceed to 103.224.241.198(unsafe)," you will see the output:</p>
+        <img src="output.png" alt="Image 3" class="step-image">
+    </section>
+
+    <section class="step">
+        <p class="completed-message">Congratulations, Your Verification is Completed!</p>
+    </section>
+</body>
+</html>

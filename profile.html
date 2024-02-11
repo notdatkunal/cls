@@ -1,0 +1,450 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CVIRMS</title>
+    <meta name="description" content="CVIRMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link rel="shortcut icon" href="images/cvirms_logo.png">
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+
+             /* Style the dropdown menu */
+    .user-menu {
+    display: none; /* Hide the menu by default */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+    /* Style the menu items */
+    .user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+    /* Change the background color and text color on hover */
+    .user-menu a:hover {
+    background-color: #b4d0de;
+    color: #fff;
+}
+
+    /* Show the dropdown menu when the parent element is hovered */
+    .dropdown:hover .user-menu {
+    display: block;
+}
+
+        #main-menu a {
+        color: black !important;
+    }
+    
+        #language {
+    margin-top: 0; /* Remove top margin */
+    padding: 10px 0px; /* Adjust padding as needed */
+    }
+       
+
+
+
+/* Dropdown Menu Background */
+.dropdown-menu {
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc; /* Dropdown Menu Border */
+    border-radius: 5px; /* Rounded corners for the dropdown menu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Dropdown Menu Items Text Color */
+.dropdown-item {
+    color: #333333;
+}
+
+/* Hover Color (Background) */
+.dropdown-item:hover {
+    background-color: #b4d0de;
+    color: #555555; /* Text color for hovered item */
+}
+
+/* Highlight Color (Active Item) */
+.dropdown-item.active {
+    background-color: #e0e0e0;
+}
+
+/* Remove underlines from links inside dropdown items */
+.dropdown-item a {
+    text-decoration: none;
+}
+
+/* Optional: Increase spacing between items for better readability */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+}
+
+/* Optional: Style the dropdown toggle button */
+
+.page-title{
+    background-color:#555555;
+    color: white;
+    max-width: 100%;
+    text-align: center;
+}
+.btn-primary{
+    cursor: pointer;
+
+}
+
+form {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #F9F9F9;
+            border-radius: 5px;
+            margin-left: 10px;
+    }
+
+.form-group{
+            width: 50%;
+        }
+
+
+
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+
+       getProfile();
+         function getProfile(){
+              let memberId =  sessionStorage.getItem("memberId");
+                 console.log("hi");
+                  fetch(`https://localhost/member/`+memberId+'/profile')
+                .then(response =>response.json())
+                .then(data => {
+                   
+                   setHotelDetails(data);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+                console.log("bye");
+                 
+             }
+              function setHotelDetails(data){
+                  console.log(data);
+                  firstName.value = data.firstName 
+                  middleName.value = data.middleName
+                  lastName.value = data.lastName
+                  hotelName.value = data.name;
+                  email.value = data.email
+                  contactNumber.value = data.contact
+                  address.value = data.address
+                  pincode.value = data.location.pincode||'not available'
+                //   gender.value = data.gender
+                 for (var i = 0; i < gender.options.length; i++) {
+                        if (gender.options[i].text.toLowerCase() === data.gender) {
+                          // Set the found option as selected
+                          gender.selectedIndex = i;
+                          break; // Exit the loop once found
+                                 }
+                            }
+                //   hotelAdress.textContent = data.address
+                  
+                //   managerName.textContent = data.managerName||ownerName.textContent
+                //   ownerProfile.textContent = data.profile||'not available'
+                //   ownerContact.textContent = data.contact
+                //   ownerPincode.textContent = data.location.pincode||'not available'
+                //   ownerEmail.textContent = data.email;
+              }
+
+    </script>
+    <script>
+        document.getElementById("home-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default behavior of the link
+            location.reload(); // Reload the current page
+        });
+    </script>
+    
+</head>
+
+<body>
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel" style="background-color: #bab6b6;">
+        <nav class="navbar navbar-expand-sm navbar-default" style="background-color: #bab6b6;">
+            <div class="navbar-header" >
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #bab6b6;">
+                    <i class="fa fa-bars" ></i>
+                </button>
+                <a class="navbar-brand" href="index.html" style="background-color: #bab6b6;">
+                    <img src="images/cvirms_logo.png" alt="Logo" width="130px">
+                </a>   
+                
+            </div>
+            
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="menu-icon fa fa-home"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Home
+                        </a>
+                    </li>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="employee.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Add Employee
+                        </a>
+                    </li>
+                    
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="foreign_visitor.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                            Foreign Visitor
+                        </a>
+                    </li>
+
+
+                    
+                    <li class="nav-item dropdown active"> <!-- Use the 'nav-item dropdown' class -->
+                        <a class="nav-link dropdown-toggle ml-auto" href="#" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            <i class="menu-icon fa fa-language black-menu-icon" aria-hidden="true" aria-hidden="true" style="color: black;"></i> Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language">
+                            <a class="dropdown-item" href="#" >Hindi</a>
+                            <a class="dropdown-item" href="#" >English</a>
+                            <a class="dropdown-item" href="#" >Marathi</a>
+                            <a class="dropdown-item" href="#" >Kannada</a>
+                            <a class="dropdown-item" href="#" >Telugu</a>
+                            <a class="dropdown-item" href="#" >Malayalam</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </aside><!-- /#left-panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header" style="background-color:#bab6b6;">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                            <button class="search-trigger" style="margin-right: 70px; " ><input type="submit" value="Search" style="width: 100px;"></i></button>
+                            <div class="form-inline" style="background-color: #BAB6B6 ;">
+                                <form class="search-form" style="background-color: #BAB6B6;">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search" style="background-color: #BAB6B6;color: black;">
+                                    <button class ="search-close" type="submit"><i style="color: black"; class ="fa fa-close"></i></button>
+                                </form>
+                            </div>
+
+                      
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/noprofile.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="dropdown">
+                            <div class="user-menu dropdown-menu">                               
+                                <a class="nav-link" onclick="out()"><i class="fa fa-power-off"></i> Logout</a>
+                                <script>
+                                    function out(){
+                                        sessionStorage.clear();
+                                        window.location.href = "index.html";
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div id="language-select">
+                        <a id="profile" aria-haspopup="true" aria-expanded="true">
+                            <p style="color: black;">Profile</p>
+                        </a>
+                    </div>
+
+                 </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+        <div class="page-title">
+            <h1 >My Profile</h1>
+        </div>
+
+
+        <div class="profile-section">
+            <form>
+                <div class="form-row">
+                    <div class="col-md-2 form-group">
+                        <label for="title">Title:</label>
+                        <select id="title" name="title" class="form-control" required>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="middleName">Middle Name:</label>
+                        <input type="text" id="middleName" class="form-control" placeholder="Middle Name" required>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" class="form-control" required>
+                        <option value = 'male'>Male</option>
+                        <option value = 'female'>Female</option>
+                        <option value = 'other'>Other</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="text" name="contactNumber" id="contactNumber" class="form-control" pattern="[0-9]{10,}" title="Please enter a valid 10-digit phone number (numbers only)" placeholder="Contact" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" cols="5" rows="3" class="form-control" placeholder="Address" required></textarea>
+                </div>
+            
+                <div class="form-group">
+                    <label for="pincode">Pincode:</label>
+                    <input type="text" name="pincode" id="pincode" class="form-control"  pattern="[0-9]{6,}" title="Please enter a valid 6-digit(numbers only) " placeholder="Pincode" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="email">Hotel Name:</label>
+                    <input type="email" id="hotelName" class="form-control" placeholder="Hotel Name" required>
+                </div>
+            
+               
+            
+                <div class="form-group">
+                    <label for="documentId">Name of Submitted Document ID:</label>
+                    <select id="documentId" name="documentId" class="form-control">
+                        <option value="Aadhar card">Aadhar card</option>
+                        <option value="Pan card">Pan card</option>
+                        <option value="Voters Card">Voters Card</option>
+                        <option value="DL">DL</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="documentIdNumber">Submitted Document ID Number:</label>
+                    <input type="text" id="documentIdNumber" class="form-control">
+                </div>
+            
+                <div class="form-group">
+                    <label for="documentIdPhoto">Submitted Document ID Photo:</label>
+                    <input type="file" id="documentIdPhoto" class="form-control-file">
+                </div>
+            
+                <div class="form-group">
+                    <label for="employeePhoto">My Photo:</label>
+                    <input type="file" id="employeePhoto" class="form-control-file">
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            
+        </div>
+          
+         
+    </div><!-- /#right-panel -->
+   
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="script.js"></script>
+
+
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/widgets.js"></script>
+    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Lodge Visitor Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style type="text/css">
+
+.highlighted-header {
+            background-color: #dbdcde; /* Change to your preferred highlight color */
+            color:rgb(9,9,9);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            max-width: 100%;
+        
+        }
+        .f1 {
+            font-weight: bold;
+            font-size: 20px;
+            border-width: 5px;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+        .f2
+        {
+            font-weight: bolder;
+            font-size: 20px;
+            border-width: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .guest-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .guest-container select,
+        .guest-container input {
+            flex: 1;
+        }
+        form {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .title{
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1 class="text-center highlighted-header">Hotel Lodge Visitor Form</h1>
+    </div>
+<div class="container">
+    
+    <form>
+        
+            <fieldset class="">
+              
+                <div class="form-row">
+                    <div class="form-group col-md-2 f1">
+                        <label >Title</label>
+                        <select name="title" class="form-control">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 f1">
+                        <label>First Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 f1">
+                        <label>Middle Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 f1">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="gender"  class="f1">Gender:</label>
+                <select id="gender" name="gender" class="form-control">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                </div>
+            <fieldset class="f1">
+            <div class="form-group">
+    <label for="contactNumber" class="f1">Contact Number :</label>
+    <input type="text" id="contactNumber" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label for="address" class="f1">Address :</label>
+    <input type="text" id="address" class="form-control">
+</div>
+<div class="form-group">
+    <label for="pincode" class="f1">Pincode :</label>
+    <input type="text" id="pincode" class="form-control">
+</div>
+<div class="form-group">
+    <label for="area" class="f1">Area / Location :</label>
+    <input type="text" id="area" class="form-control">
+</div>
+<div class="form-group">
+    <label for="city" class="f1">City :</label>
+   
+    <select name="title" class="form-control">
+        <option >Pune</option>
+        <option>Nashik</option>
+        <option>Wardha</option>
+        <option>Nagpur</option>
+    </select>
+   
+</div>
+<div class="form-group">
+    <label for="taluka" class="f1">Taluka:</label>
+    <select name="taluka" class="form-control">
+        <option >Wardha</option>
+        <option >Nashik</option>
+        <option>Nagpur</option>
+    </select>
+   
+</div>
+<div class="form-group">
+    <label for="dist" class="f1">District :</label>
+    <select name="dist" class="form-control">
+        <option >Mumbai</option>
+        <option >Nagpur</option>
+        <option>Pune</option>
+    </select>
+  
+</div>
+<div class="form-group">
+    <label for="state" class="f1">State :</label>
+    <select name="title" class="form-control">
+        <option >Maharashtra</option>
+        <option >Rajasthan</option>
+        <option>Goa</option>
+        <option>Punjab</option>
+    </select>
+   
+</div>
+<div class="form-group">
+    <label for="numOfGuests" class="f2" >Number of Guests:</label>
+    <select id="numOfGuests" class="form-control" name="numOfGuests" onchange="showGuestFields()">
+        <option value="0"  >0</option>
+        <option value="1" >1</option>
+        <option value="2" >2</option>
+        <option value="3" >3</option>
+        <option value="4" >4</option>
+        <option value="5" >5</option>
+    </select>
+    <div id="guestsInput" class="f2" ></div>
+
+    <script>
+        function showGuestFields() {
+            var numOfGuests = document.getElementById("numOfGuests").value;
+            var guestsInput = document.getElementById("guestsInput");
+            guestsInput.innerHTML = ""; // Clear previous fields
+
+            for (var i = 1; i <= numOfGuests; i++) {
+                var guestDiv = document.createElement("div");
+                guestDiv.className = "guest-container";
+
+                var nameLabel = document.createElement("label");
+                nameLabel.setAttribute("for", "name" + i);
+                
+
+                var nameInput = document.createElement("input");
+                nameInput.type = "text";
+                nameInput.name = "name" + i;
+                nameInput.id = "name" + i;
+                nameInput.placeholder = "Name";
+
+                var genderLabel = document.createElement("label");
+                genderLabel.setAttribute("for", "gender" + i);
+                
+
+                var genderSelect = document.createElement("select");
+                genderSelect.name = "gender" + i;
+                genderSelect.id = "gender" + i;
+
+                var maleOption = document.createElement("option");
+                maleOption.value = "male";
+                maleOption.textContent = "Male";
+
+                var femaleOption = document.createElement("option");
+                femaleOption.value = "female";
+                femaleOption.textContent = "Female";
+
+                var otherOption = document.createElement("option");
+                otherOption.value = "other";
+                otherOption.textContent = "Other";
+
+                genderSelect.appendChild(maleOption);
+                genderSelect.appendChild(femaleOption);
+                genderSelect.appendChild(otherOption);
+
+                guestDiv.appendChild(nameLabel);
+                guestDiv.appendChild(nameInput);
+                guestDiv.appendChild(genderLabel);
+                guestDiv.appendChild(genderSelect);
+
+                guestsInput.appendChild(guestDiv);
+            }
+        }
+    </script>
+</div>
+<div class="form-group">
+    <div class="form-check">
+        <input type="checkbox" id="vehicleNo" name="vehicleNo" class="form-check-input">
+        <label for="vehicleNo" class="form-check-label">Vehicle No:</label>
+    </div>
+    <div id="vehicleNoTextFieldContainer" style="display: none;">
+        <input type="text" id="vehicleNoTextField" name="vehicleNoTextField" class="form-control" placeholder="Enter Vehicle No">
+    </div>
+</div>
+
+<script>
+    // JavaScript to toggle the visibility of the Vehicle No text field
+    const vehicleNoCheckbox = document.getElementById('vehicleNo');
+    const vehicleNoTextFieldContainer = document.getElementById('vehicleNoTextFieldContainer');
+
+    vehicleNoCheckbox.addEventListener('change', function () {
+        if (this.checked) {
+            vehicleNoTextFieldContainer.style.display = 'block';
+        } else {
+            vehicleNoTextFieldContainer.style.display = 'none';
+        }
+    });
+</script>
+
+
+<div class="form-group">
+    <label for="docTitle" class="f1">Name of Document ID :</label>
+    <select id="docTitle" name="title" class="form-control">
+        <option value="Aadhar card">Aadhar card</option>
+        <option value="Pan card">Pan card</option>
+        <option value="Voters Card">Voters Card</option>
+        <option value="DL">Driving License</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="docNumber" class="f1">Document ID Number:</label>
+    <input type="text" id="docNumber" class="form-control">
+</div>
+<div class="form-group">
+    <label for="photoID" class="f1">Document Photo ID :</label>
+    <input type="file" id="photoID" class="form-control-file">
+</div>
+<div class="form-group">
+    <label for="photoID" class="f1">Upload Visitor Photo  :</label>
+    <input type="file" id="photoID" class="form-control-file">
+</div>
+<div class="form-group">
+    <label class="f1">OTP for Sign Verification :</label>
+    <input type="checkbox" id="vehicleCheckbox" class="form-checkbox">
+    
+</div>
+
+            <div class="form-group">
+                <label for="checkIn" class="f1">Check In:</label>
+                <input type="date" id="checkIn" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="checkOut" class="f1">Check Out:</label>
+                <input type="date" id="checkOut" class="form-control">
+            </div>
+            
+           
+
+<script>
+    const checkInInput = document.getElementById('checkIn');
+    const checkOutInput = document.getElementById('checkOut');
+
+    // Attach event listeners to Check In and Check Out input fields
+    checkInInput.addEventListener('change', validateDateRange);
+    checkOutInput.addEventListener('change', validateDateRange);
+
+    function validateDateRange() {
+        const checkInDate = new Date(checkInInput.value);
+        const checkOutDate = new Date(checkOutInput.value);
+
+        if (checkInDate > checkOutDate) {
+            alert("Check In date cannot be after Check Out date");
+            // Optionally clear the inputs or set default values
+            checkInInput.value = "";
+            checkOutInput.value = "";
+        }
+    }
+</script>
+
+
+
+            <div class="form-group">
+                <label for="remark" class="f1">Remark:</label>
+                <input type="text" id="remark" class="form-control">
+            </div>
+            <div class="text-center">
+                <input type="submit" name="SUBMIT" class="btn btn-primary" value="Submit">
+            </div>
+        </fieldset>
+    </form>
+</div>
+</div>
+</body>
+</html>

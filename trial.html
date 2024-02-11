@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+</head>
+<body>
+    <button id="checkInButton">Check In</button>
+    <div id="checkInCalendar" style="display: none;"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+    <script>
+        const checkInButton = document.getElementById("checkInButton");
+        const checkInCalendar = new Datepicker("#checkInCalendar", { dateSelected: new Date() });
+
+        checkInButton.addEventListener("click", () => {
+            checkInCalendar.show();
+        });
+    </script>
+</body>
+</html>

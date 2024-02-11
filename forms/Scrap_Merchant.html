@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrap Merchant</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style type="text/css">
+        .d {
+            width: 100%;
+           
+        }
+        .main {
+        width: 50%;
+        font-weight: bolder;
+    }
+
+        .f1 {
+            border-width: 5px;
+        }
+
+        .l1, .l2,.l3,.l4,.l5,.l6 {
+            
+          text-align:left;
+            font-weight: bolder;
+            font-size: 20px;
+
+        }
+        .f2
+        {
+            text-align: left;
+           width: 50%;
+        }
+        .d1
+        {
+            text-align: left;
+        }
+        form {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-left: 250px;
+            margin-right: 250px;
+            margin-top: 50px;
+            margin-bottom: 50PX;
+        
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center" style="background-color: #dbdcde;">Scrap Merchant</h1>
+<div align="center" class="d">
+    <form>
+        <div class="container">
+            <fieldset class="f1">
+                <legend class="l1">Name of Seller:</legend>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label class="l1">Title</label>
+                        <select name="title" class="form-control">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="l1">First Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="l1">Middle Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="l1">Last Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="d1">
+                <fieldset class="f2">
+                <div class="form-group ">
+    <legend class="l2" for="contactNumber">Contact Number:</legend>
+    <input type="text" id="contactNumber" class="form-control">
+</div>
+<div class="form-group">
+    <legend class="l3" for="address">Address:</legend>
+    <input type="text" id="address" class="form-control">
+</div>
+<div class="form-group">
+    <legend class="l4" for="typeOfScrap">Type of Scrap:</legend>
+    <select id="typeOfScrap" name="Type of Scrap" class="form-control">
+        <option value="Plastic">Plastic</option>
+        <option value="Metal">Metal</option>
+        <option value="House Hold Item">House Hold Item</option>
+        <option value="Paper">Paper</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Wood">Wood</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Industrial">Industrial</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+<div class="form-group">
+    <legend class="l5" for="photo">Photo:</legend>
+    <input type="file" id="photo" name="name" class="form-control-file">
+</div>
+<div class="form-group">
+    <legend class="l6" for="remark">Remark:</legend>
+    <input type="text" id="remark" name="name" class="form-control">
+</div>
+</div
+</fieldset>
+
+                <div class="text-center">
+                    <input type="submit" name="SUBMIT" class="btn btn-primary" value="Submit">
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>  
+</body>
+</html>

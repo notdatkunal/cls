@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script>
+    
+     async function test() {
+        
+       
+     const hotelEntryData = {
+    "checkIn":"2023-09-01",
+    "checkOut":"2023-09-01",
+
+
+    "remark":["one","two","three"],
+    "visitor":{
+        "firstName":"kunal 123",
+        "middleName":"3245",
+        "lastName":"8954",
+        "gender":"MALE",
+        "email":"kunal235678@email.com",
+        "contact":"1234234567",
+        "address":"vanaz"
+        
+    }
+   
+    
+   
+
+};
+        
+        try {
+           
+           
+            console.log(hotelEntryData);
+            var endpoint = 'https://localhost/member/4/add';
+            
+
+            var response = await fetch (endpoint,{method:'POST' , headers:{'Content-Type': 'application/json'},body:hotelEntryData});
+
+            if(response.status===201){
+                console.log("yes");
+                window.location = 'index.html';
+                }
+                else{
+                   console.log(response.status);
+                }
+        } catch (error) {
+            console.error('Error in sendDataToAPI:', error);
+        }
+        console.log("test");
+    }
+    
+    
+    
+    
+    
+       
+    </script>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <button onclick="test()">test</button>
+  </body>
+</html>

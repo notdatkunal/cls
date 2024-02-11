@@ -1,0 +1,741 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hotel_Lodge_Visitor_Form</title>
+    <meta name="description" content="CVIRMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <link rel="shortcut icon" href="images/cvirms_logo.png">
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+
+             /* Style the dropdown menu */
+    .user-menu {
+    display: none; /* Hide the menu by default */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+    /* Style the menu items */
+    .user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+    /* Change the background color and text color on hover */
+    .user-menu a:hover {
+    background-color: #b4d0de;
+    color: #fff;
+}
+
+    /* Show the dropdown menu when the parent element is hovered */
+    .dropdown:hover .user-menu {
+    display: block;
+}
+
+
+    .card:hover {
+        transform: scale(1.00); /* Enlarge the card slightly on hover */
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+        #main-menu a {
+        color: black !important;
+    }
+    
+        #language {
+    margin-top: 0; /* Remove top margin */
+    padding: 10px 0px; /* Adjust padding as needed */
+    }
+        #emergency{
+            background-color: #e0c8f7;
+        }
+        #notice{
+            background-color: #f7c8c6;
+        }
+        #Add{
+            background-color: #c1e2b3;
+
+        }
+        #support{
+            background-color: #e6f7ff;
+        }
+        .card{
+            border-radius: 20px;
+        }
+
+        .logo {
+    display: inline-flex;
+    align-items: center;
+    color: white; /* Set text color to white */
+   
+    padding: 5px 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.logo i {
+    margin-right: 5px; /* Add spacing between the icon and text */
+}
+
+
+
+/* Dropdown Menu Background */
+.dropdown-menu {
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc; /* Dropdown Menu Border */
+    border-radius: 5px; /* Rounded corners for the dropdown menu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Dropdown Menu Items Text Color */
+.dropdown-item {
+    color: #333333;
+}
+
+/* Hover Color (Background) */
+.dropdown-item:hover {
+    background-color: #b4d0de;
+    color: #555555; /* Text color for hovered item */
+}
+
+/* Highlight Color (Active Item) */
+.dropdown-item.active {
+    background-color: #e0e0e0;
+}
+
+/* Remove underlines from links inside dropdown items */
+.dropdown-item a {
+    text-decoration: none;
+}
+
+/* Optional: Increase spacing between items for better readability */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+}
+
+/* Optional: Style the dropdown toggle button */
+.navbar-toggler-icon {
+    color: #333333;
+}
+.green-button {
+    background-color: green !important;
+}
+.title{
+    background-color: #757575;
+    color: white;
+   
+}
+.container{
+    margin-top: 20px;
+}
+form {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #F9F9F9;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .form-group{
+            width: 50%;
+            font-weight: bolder;
+        }
+        .form-inline{
+            background-color: #757575;
+            color: white;
+        }
+        
+
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+
+        function update(id){
+            console.log(id);
+            console.log("user is updated");
+        }
+         var id =  sessionStorage.getItem("memberId");
+
+    </script>
+</head>
+
+<body>
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel" style="background-color: #bab6b6;">
+        <nav class="navbar navbar-expand-sm navbar-default" style="background-color: #bab6b6;">
+            <div class="navbar-header" >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #bab6b6;">
+                    <i class="fa fa-bars" ></i>
+                </button>
+                <a class="navbar-brand" href="index.html" style="background-color: #bab6b6;">
+                    <img src="images/cvirms_logo.png" alt="Logo" width="130px">
+                </a>   
+                
+            </div>
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="menu-icon fa fa-home"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Home
+                        </a>
+                    </li>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="employee.html">
+                            <i class="menu-icon fa fa-user-plus"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Add Employee
+                        </a>
+                    </li>
+
+        
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="background-color:#bab6b6;">
+                    <li class="active">
+                        <a href="foreign_visitor.html">
+                            <i class="menu-icon fa fa-user-secret"  aria-hidden="true" aria-hidden="true" style="color: black;"></i><!-- User icon -->
+                             Foreign Visitor
+                        </a>
+                    </li>
+
+                   
+                    
+                    <li class="nav-item dropdown active"> <!-- Use the 'nav-item dropdown' class -->
+                        <a class="nav-link dropdown-toggle ml-auto" href="#" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            <i class="menu-icon fa fa-language black-menu-icon" aria-hidden="true" aria-hidden="true" style="color: black;"></i> Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language">
+                            <a class="dropdown-item" href="#" >Hindi</a>
+                            <a class="dropdown-item" href="#" >English</a>
+                            <a class="dropdown-item" href="#" >Marathi</a>
+                            <a class="dropdown-item" href="#" >Kannada</a>
+                            <a class="dropdown-item" href="#" >Telugu</a>
+                            <a class="dropdown-item" href="#" >Malayalam</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </aside><!-- /#left-panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header" style="background-color:#bab6b6;">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                            <button class="search-trigger" style="margin-right: 70px; " ><input type="submit" value="Search" style="width: 100px;"></i></button>
+                            <div class="form-inline" style="background-color: #BAB6B6 ;">
+                                <form class="search-form" style="background-color: #BAB6B6;">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search" style="background-color: #BAB6B6;color: black;">
+                                    <button class ="search-close" type="submit"><i style="color: black"; class ="fa fa-close"></i></button>
+                                </form>
+                            </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/noprofile.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="dropdown">
+                            <div class="user-menu dropdown-menu">
+                               <a class="nav-link" href="profile.html"><i class="fa fa-user"></i> My Profile</a>
+                              
+                                
+                                <a class="nav-link" onclick="out()"><i class="fa fa-power-off"></i> Logout</a>
+                                <script>
+                                    function out(){
+                                        sessionStorage.clear();
+                                        window.location.href = "index.html";
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div id="language-select">
+                        <a id="profile" aria-haspopup="true" aria-expanded="true">
+                            <p style="color: black;">Profile</p>
+                        </a>
+                    </div>
+
+                 </div>
+
+        </header>
+        <div class="title">
+            <h1 class="text-center highlighted-header">Hotel Lodge Visitor Form</h1>
+        </div>
+    <div class="container">
+        
+        <form id="visitorForm" >
+            
+            <fieldset class="">
+                  
+                    <div class="form-row">
+                        <div class="form-group col-md-2 f1">
+                            <label >Title</label>
+                            <select name="title" class="form-control">
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Miss">Miss</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 f1">
+                            <label>First Name</label>
+                            <input type="text" id="firstname" name="firstname" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-3 f1">
+                            <label>Middle Name</label>
+                            <input type="text" id="middleName" name="middleName" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-3 f1">
+                            <label>Last Name</label>
+                            <input type="text" id="lastname" name="lastname" class="form-control" required>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label for="gender"  class="f1">Gender:</label>
+                    <select id="HotelGender" name="gender" class="form-control" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    </div>
+                <fieldset class="f1">
+                    <div class="form-group">
+                        <label for="contactNumber" class="f1">Contact Number:</label>
+                        <input type="text" name="contactNumber" id="contactNumber" class="form-control" pattern="[0-9]{10,}" title="Please enter a valid 10-digit phone number (numbers only)" required>
+                    </div>
+                    
+    
+    
+    
+    <div class="form-group">
+        <label for="address" class="f1">Address :</label>
+     <textarea name="address" id="address" cols="5" rows="3" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="pincode" class="f1">Pincode :</label>
+        <input type="text" name="pincode" id="pincode" class="form-control"  pattern="[0-9]{6,}" title="Please enter a valid 6-digit(numbers only) "required>
+    </div>
+    <div class="form-group">
+        <label for="area" class="f1">Area / Location :</label>
+        <input type="text" name="area" id="area" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="city" class="f1"  name="city">City :</label>
+        <input  name="city" id="city" class="form-control" required>
+       
+       
+    </div>
+    <div class="form-group">
+        <label for="taluka" class="f1">Taluka:</label>
+         <input list="talukas" name="taluka" id="taluka" class="form-control" required>
+          <datalist id="talukas">
+          </datalist>
+        
+       
+    </div>
+    <div class="form-group">
+        <label for="dist" class="f1">District :</label>
+        <input list="dists" name="taluka" id="dist" class="form-control" required>
+          <datalist id="dists">
+          </datalist>
+      
+    </div>
+    <div class="form-group">
+        <label for="state" class="f1">State :</label>
+        <input list="states" name="state" id="state" class="form-control" required>
+          <datalist id="states">
+          </datalist>
+       
+    </div>
+    <div class="form-group">
+        <label for="numOfGuests" class="f2" >Number of Guests:</label>
+        <select id="numOfGuests" class="form-control" name="numOfGuests" onchange="showGuestFields()">
+            <option value="0"  >0</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
+        </select>
+        <div id="guestsInput" class="f2" ></div>
+    
+        
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input type="checkbox" id="vehicleNo" name="vehicleNo" class="form-check-input">
+            <label for="vehicleNo" class="form-check-label">Vehicle No:</label>
+        </div>
+        <div id="vehicleNoTextFieldContainer" style="display: none;">
+            <input type="text" id="vehicleNoTextField" name="vehicleNoTextField" class="form-control" placeholder="Enter Vehicle No">
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript to toggle the visibility of the Vehicle No text field
+        const vehicleNoCheckbox = document.getElementById('vehicleNo');
+        const vehicleNoTextFieldContainer = document.getElementById('vehicleNoTextFieldContainer');
+    
+        vehicleNoCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                vehicleNoTextFieldContainer.style.display = 'block';
+            } else {
+                vehicleNoTextFieldContainer.style.display = 'none';
+            }
+        });
+    </script>
+    
+    
+    <div class="form-group">
+        <label for="docTitle" class="f1">Name of Document ID :</label>
+        <select id="docTitle" name="docname" class="form-control" required>
+            <option value="Aadhar card">Aadhar card</option>
+            <option value="Pan card">Pan card</option>
+            <option value="Voters Card">Voters Card</option>
+            <option value="DL">Driving License</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="docNumber" class="f1">Document ID Number:</label>
+        <input type="text" id="docNumber" name="docnumber" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="photoID" class="f1">Document Photo ID :</label>
+        <input type="file" id="docPhotoId"name="docphotoid" class="form-control-file">
+    </div>
+
+    <div class="form-group">
+        <label for="photoID" class="f1">Upload Visitor Photo :</label>
+        <input type="file" id="photoID" name="photoid" class="form-control-file">
+    </div>
+    
+   
+    
+                <div class="form-group">
+                    <label for="checkIn" class="f1">Check In:</label>
+                    <input type="datetime-local" id="checkIn" name="checkin" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkOut" class="f1">Check Out:</label>
+                    <input type="datetime-local" id="checkOut" name="checkout" class="form-control">
+                </div>
+                
+               
+    
+    <script>
+        const checkInInput = document.getElementById('checkIn');
+        const checkOutInput = document.getElementById('checkOut');
+    
+        // Attach event listeners to Check In and Check Out input fields
+        checkInInput.addEventListener('change', validateDateRange);
+        checkOutInput.addEventListener('change', validateDateRange);
+    
+        function validateDateRange() {
+            const checkInDate = new Date(checkInInput.value);
+            const checkOutDate = new Date(checkOutInput.value);
+    
+            if (checkInDate > checkOutDate) {
+                alert("Check In date cannot be after Check Out date");
+                // Optionally clear the inputs or set default values
+                checkInInput.value = "";
+                checkOutInput.value = "";
+            }
+        }
+    </script>
+
+                <div class="form-group">
+                    <label for="remark" class="f1">Remark:</label>
+                    <input type="text" id="remark" name="remark" class="form-control">
+                </div>
+                <button onclick = "sendDataToAPI()" name="SUBMIT" class="btn btn-primary" >Submit</button>
+                <!--<input type="submit"  value="Submit">-->
+                
+            </fieldset>
+        </form>
+    </div>
+    </div>
+
+
+  
+
+    <script>
+
+       
+    async function sendDataToAPI() {
+        
+        const form = document.getElementById('visitorForm');
+        const docPhotoInput = document.getElementById('docPhotoId');
+        
+       
+       if(form.elements['checkin'].value===''){
+           alert('please add checkIn details');
+       }
+       if(docNumber.value===''){
+           alert('please enter document number');
+       }
+   
+    const hotelEntryData = {
+    "checkIn":form.elements['checkin'].value,
+    "checkOut":form.elements['checkout'].value,
+
+    "guests": [
+            // You can populate guest objects here if needed
+        ],
+
+    "remark":[],
+    "visitor":{
+        "firstName":form.elements['firstname'].value,
+        "middleName":form.elements['middleName'].value,
+        "lastName":form.elements['lastname'].value,
+        "gender": document.getElementById("HotelGender").value,
+        "contact":form.elements['contactNumber'].value,
+        "address": form.elements['address'].value,
+        "vehicleNumber":vehicleNoTextField.value,
+         "document":{
+                   "name":""+document.getElementById("docTitle").value ,
+                   "number":docNumber.value
+                         }
+        
+         }
+  
+  
+    
+   
+
+};
+  
+     const numOfGuests = parseInt(document.getElementById('numOfGuests').value);
+            for (let i = 1; i <= numOfGuests; i++) {
+                const guest = {
+                    "name": document.getElementById(`name${i}`).value,
+                    "gender": document.getElementById(`gender${i}`).value,
+                };
+                // hotelEntryData.guests.push(guest);
+            }
+        
+        try {
+           
+           
+            console.log(hotelEntryData);
+            var endpoint = 'https://localhost/member/'+id+'/add';
+            
+
+            var response = await fetch (endpoint,{method:'POST' , headers:{'Content-Type': 'application/json'},body:JSON.stringify(hotelEntryData)});
+
+            if(response.status===201){
+                console.log("yes");
+                window.location = 'index.html';
+                // window.alert("done");
+                }
+                else{
+                    console.log(response.status);
+                   console.log(response);
+                }
+        } catch (error) {
+            console.error('Error in sendDataToAPI:', error);
+        }
+    }
+    
+   
+    const form = document.getElementById('visitorForm');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        // sendDataToAPI(); // Call the function to process the form data
+    });
+
+   function dist(){
+                        
+                        var dist = fetch("dist.json") // Replace with the path to your JSON file
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            }).then(
+                               data => {
+                              
+                                 
+                                 data.data.forEach(function(value){
+                                      const option = document.createElement("option");
+                                      option.value = value['pin_dist'];
+                                      dists.appendChild(option);   
+                                    //  console.log(value['pin_dist']);
+                                 });
+                            }
+                                );
+                            
+                           
+                            
+                    }
+       
+                    function tal(){
+                        
+                        var tal = fetch("tal.json") // Replace with the path to your JSON file
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            }).then(
+                               data => {
+                              
+                                 
+                                 data.data.forEach(function(value){
+                                      const option = document.createElement("option");
+                                      option.value = value['pin_taluka'];
+                                      talukas.appendChild(option);   
+                                    //  console.log(value['pin_taluka']);
+                                 });
+                            }
+                                );
+                            
+                           
+                            
+                    }
+                 function state(){
+                    
+                    var state = fetch("state.json") // Replace with the path to your JSON file
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        }).then(
+                           data => {
+                          
+                             
+                             data.data.forEach(function(value){
+                                  const option = document.createElement("option");
+                                      option.value = value['pin_state'];
+                                      states.appendChild(option);   
+                                //  console.log(value['pin_state']);
+                             });
+                        }
+                            );
+                        
+                       
+                        
+                }
+            function showGuestFields() {
+                var numOfGuests = document.getElementById("numOfGuests").value;
+                var guestsInput = document.getElementById("guestsInput");
+                guestsInput.innerHTML = ""; // Clear previous fields
+    
+                for (var i = 1; i <= numOfGuests; i++) {
+                    var guestDiv = document.createElement("div");
+                    guestDiv.className = "guest-container";
+    
+                    var nameLabel = document.createElement("label");
+                    nameLabel.setAttribute("for", "name" + i);
+                    
+    
+                    var nameInput = document.createElement("input");
+                    nameInput.type = "text";
+                    nameInput.name = "name" + i;
+                    nameInput.id = "name" + i;
+                    nameInput.placeholder = "Name";
+    
+                    var genderLabel = document.createElement("label");
+                    genderLabel.setAttribute("for", "gender" + i);
+                    
+    
+                    var genderSelect = document.createElement("select");
+                    genderSelect.name = "gender" + i;
+                    genderSelect.id = "gender" + i;
+    
+                    var maleOption = document.createElement("option");
+                    maleOption.value = "male";
+                    maleOption.textContent = "Male";
+    
+                    var femaleOption = document.createElement("option");
+                    femaleOption.value = "female";
+                    femaleOption.textContent = "Female";
+    
+                    var otherOption = document.createElement("option");
+                    otherOption.value = "other";
+                    otherOption.textContent = "Other";
+    
+                    genderSelect.appendChild(maleOption);
+                    genderSelect.appendChild(femaleOption);
+                    genderSelect.appendChild(otherOption);
+    
+                    guestDiv.appendChild(nameLabel);
+                    guestDiv.appendChild(nameInput);
+                    guestDiv.appendChild(genderLabel);
+                    guestDiv.appendChild(genderSelect);
+    
+                    guestsInput.appendChild(guestDiv);
+                }
+            }
+            dist();
+            tal();
+            state();
+  
+    
+</script>    
+     
+    
+    
+            
+            
+
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/widgets.js"></script>
+    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+   
+
+</body>
+
+</html>
