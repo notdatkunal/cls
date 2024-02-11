@@ -35,7 +35,7 @@
            
            
             console.log(hotelEntryData);
-            var endpoint = 'https://localhost/member/4/add';
+            var endpoint = 'http://localhost:8080/member/4/add';
             
 
             var response = await fetch (endpoint,{method:'POST' , headers:{'Content-Type': 'application/json'},body:hotelEntryData});

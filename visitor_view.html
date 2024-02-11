@@ -624,7 +624,7 @@ body {
       
            
          
-           fetch(`https://localhost/member/`+id+'/check/'+entryId)
+           fetch(`http://localhost:8080/member/`+id+'/check/'+entryId)
                 .then(response => {
                     
                     
@@ -671,7 +671,7 @@ body {
          function getProfile(){
               let memberId =  sessionStorage.getItem("memberId");
                  console.log("hi");
-                  fetch(`https://localhost/member/`+memberId+'/profile')
+                  fetch(`http://localhost:8080/member/`+memberId+'/profile')
                 .then(response =>response.json())
                 .then(data => {
                    

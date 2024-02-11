@@ -142,7 +142,7 @@ form {
          function getProfile(){
               let memberId =  sessionStorage.getItem("memberId");
                  console.log("hi");
-                  fetch(`https://localhost/member/`+memberId+'/profile')
+                  fetch(`http://localhost:8080/member/`+memberId+'/profile')
                 .then(response =>response.json())
                 .then(data => {
                    

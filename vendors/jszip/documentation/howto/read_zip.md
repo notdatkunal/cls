@@ -144,7 +144,7 @@ var http = require("http");
 var url = require("url");
 var JSZip = require("jszip");
 
-var req = http.get(url.parse("https://localhost/.../file.zip"), function (res) {
+var req = http.get(url.parse("http://localhost:8080/.../file.zip"), function (res) {
   if (res.statusCode !== 200) {
     console.log(res.statusCode);
     // handle error
@@ -187,7 +187,7 @@ var JSZip = require("jszip");
 
 request({
   method : "GET",
-  url : "https://localhost/.../file.zip",
+  url : "http://localhost:8080/.../file.zip",
   encoding: null // <- this one is important !
 }, function (error, response, body) {
   if(error ||  response.statusCode !== 200) {

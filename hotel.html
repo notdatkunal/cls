@@ -179,7 +179,7 @@
         //   getType(id);
            getType(id);
            console.log("id");
-           fetch(`https://localhost/member/`+id)
+           fetch(`http://localhost:8080/member/`+id)
                 .then(response => response.json())
                 .then(data => {
                     // Update the response message element with the received data
@@ -244,7 +244,7 @@
       
              function getType(id){
                  console.log("hi");
-                  fetch(`https://localhost/member/`+id+'/type')
+                  fetch(`http://localhost:8080/member/`+id+'/type')
                 .then(response => response.text())
                  .then(data => {
                     AccType = data;

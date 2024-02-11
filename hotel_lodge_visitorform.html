@@ -560,7 +560,7 @@ form {
            
            
             console.log(hotelEntryData);
-            var endpoint = 'https://localhost/member/'+id+'/add';
+            var endpoint = 'http://localhost:8080/member/'+id+'/add';
             
 
             var response = await fetch (endpoint,{method:'POST' , headers:{'Content-Type': 'application/json'},body:JSON.stringify(hotelEntryData)});
